@@ -1,0 +1,38 @@
+
+  'VARIABLES QUE SE USAN COMO BANDERAS , QUE NOS INDICAN EN QUE COORDENAS SE VAN
+    'A PINTAR, Y "d" EN QUE FILA VAMOS A TOMAR EL COLOR DE LA TABLA PROCESOS
+    Dim xx As Integer = 0, yy As Integer = 0
+    'coordenadas que sirviran para pintar
+    Dim d As Integer = 0
+
+    Private Sub Encontra_ultima_Fila_ultima_Col()
+
+        Try
+
+            Dim J As Integer = 0
+            Dim I As Integer = 0
+
+
+            For J = 0 To dgridRoundRobin.Columns.Count - 1
+
+                Ultima_Columa = J
+
+                For I = 0 To dgridRoundRobin.Rows.Count - 1
+
+                    If Not dgridRoundRobin.Item(J, I).Value Is Nothing Then
+                        If dgridRoundRobin.Item(J, I).Value = "" Then
+                            Ultima_Fila = I
+                            Exit Sub
+                        End If                    
+                    End If
+
+                Next
+
+            Next
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
